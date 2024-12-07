@@ -1,6 +1,6 @@
 import React from 'react'
 
-const page = async({searchParams,} : {
+const SearchPage = async({searchParams,} : {
   searchParams: {
     query: string
   };}) => {
@@ -12,4 +12,4 @@ const page = async({searchParams,} : {
   )
 }
 
-export default page
+export default SearchPage

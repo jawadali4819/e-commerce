@@ -1,4 +1,6 @@
+import { Description } from '@radix-ui/react-dialog'
 import {TagIcon} from '@sanity/icons'
+import { title } from 'process'
 import {defineField, defineType} from 'sanity'
 
 export const categoryType = defineType({
@@ -23,4 +25,11 @@ export const categoryType = defineType({
       type: 'text',
     }),
   ],
+
+  preview: {
+    select: {
+      title: "title",
+      subtitle: "description"
+    }
+  }
 })
