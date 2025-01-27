@@ -1,0 +1,9 @@
+export const COUPON_CODES = {
+  BFRIDAY: "BFRIDAY",
+  XMAS2025: "XMAS2025",
+  NEWYEAR2026: "NEWYEAR2026",
+  EASTER2026: "EASTER2026",
+  SUMMER2026: "SUMMER2026",
+} as const;
+
+export type couponCodes = keyof typeof COUPON_CODES;

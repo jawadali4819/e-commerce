@@ -1,12 +1,14 @@
 import exp from "constants";
 import { Product } from "../../sanity.types"
-
+import { Category } from "../../sanity.types";
+import ProductGrid from "./ProductGrid";
 // ! at 2:00:00
 
 interface ProductsViewProps{
   products: Product[];
+  categories: Category[];
 }
-const ProductsView = ({products}: ProductsViewProps)=>{
+const ProductsView = ({products, categories}: ProductsViewProps)=>{
   return <div>
     
 
