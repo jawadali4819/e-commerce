@@ -4,6 +4,8 @@ import React from 'react'
 import Image from 'next/image';
 import { imageUrl } from '@/lib/imageUrl';
 import { PortableText } from 'next-sanity';
+import {Button} from '@/components/ui/button';
+import AddToBasketButton from '@/components/AddToBasketButton';
 
 
 const ProductPage = async({params}: {params: Promise<{slug: string}>}) => {
@@ -49,6 +51,11 @@ const ProductPage = async({params}: {params: Promise<{slug: string}>}) => {
             <div className="prose max-w-none mb-6">
               {Array.isArray(product.description) && (<PortableText value={product.description}/>)}
             </div>
+          </div>
+          <div className="mt-6">
+            <AddToBasketButton product={product} disabled={isOutOfStock}/>
+            <Button>Add to Basket</Button>
+
           </div>
         </div>
 

@@ -6,10 +6,14 @@ import Form from "next/form";
 import { Button } from "@/components/ui/button";
 import { ShoppingCart, Package, User } from "lucide-react";
 import { UserButton } from "@clerk/nextjs";
+import { useBasketStore } from "@/store/store";
 
 const Header = () => {
   const { isSignedIn } = useUser();
   const { user } = useUser();
+  const itemCount = useBasketStore((state) => 
+    state.items.reduce((total, item) => total + item.quantity, 0)
+  );
 
   return (
     <header className="flex w-full flex-col mb-4">
@@ -38,8 +42,11 @@ const Header = () => {
       {/* Buttons */}
       <div className="flex items-center gap-2">
         <Link href="/basket">
-          <Button variant="default" className="flex items-center gap-2">
+          <Button variant="default" className="relative flex items-center gap-2">
             <ShoppingCart className="w-5 h-5" />
+            <span className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">
+              {itemCount}
+            </span>
             <span className="hidden sm:inline">My Basket</span>
           </Button>
         </Link>
